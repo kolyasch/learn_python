@@ -1,5 +1,6 @@
 import requests
 from datetime import datetime
+import os
 
 today_date = datetime.now().strftime("%d/%m/%Y")
 now_time = datetime.now().strftime("%X")
