@@ -7,14 +7,21 @@ class DataManager:
     def __init__(self):
         self.destination_data = {}
 
-    def get_data(self):
-        response = requests.get(sheet_url)
+    def get_destination_data(self):
+        response = requests.get(url=sheet_url)
         data = response.json()
         self.destination_data = data['prices']
         return self.destination_data
 
-    def testing(self):
-        for n in self.destination_data:
-            if self.destination_data[n]['iataCode'] == '':
-                self.destination_data[n]['iataCode'] = 'TESTING'
-        return self.destination_data
+    def update_destination_code(self):
+        for city in self.destination_data:
+            new_data = {
+                'price': {
+                    'iataCode': city['iataCode']
+                }
+            }
+            response = requests.put(
+                url=f"{sheet_url}/{city['id']}",
+                json=new_data
+            )
+            print(response.text)
