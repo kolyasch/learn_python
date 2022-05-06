@@ -1,6 +1,6 @@
 import requests
 
-sheet_url = 'https://api.sheety.co/96b85a69d38d890adf468ad958709c2e/flightDeals/prices'
+sheet_url = 'https://api.sheety.co/2042acd42e8d3c73c73f38b9d9cca344/flightDeals/prices'
 
 
 class DataManager:
